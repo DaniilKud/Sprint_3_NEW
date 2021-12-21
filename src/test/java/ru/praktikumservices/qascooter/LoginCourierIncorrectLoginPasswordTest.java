@@ -81,5 +81,26 @@ public class LoginCourierIncorrectLoginPasswordTest {
                 .path("message");
         assertThat("Можно зарегестрироваться с некорректным паролем", message, equalTo("Учетная запись не найдена"));
     }
-
+    @Test
+    @DisplayName("Нельзя авторизоваться только логин")
+    public void authorizationCourierIncorrectOnlyWithLogin() {
+        CourierLogin bodyLoginOnly = new CourierLogin (courier.login);
+        message = courierCreateAndDelete.login (bodyLoginOnly)
+                .assertThat()
+                .statusCode(400)
+                .extract()
+                .path("message");
+        assertThat("Можно зарегестрироваться без пароля", message, equalTo("Недостаточно данных для входа"));
+    }
+    @Test
+    @DisplayName("Нельзя авторизоваться только паролем")
+    public void authorizationCourierIncorrectOnlyWithPassword() {
+        CourierLogin bodyPasswordOnly = new CourierLogin (courier.password);
+        message = courierCreateAndDelete.login (bodyPasswordOnly)
+                .assertThat()
+                .statusCode(400)
+                .extract()
+                .path("message");
+        assertThat("Можно зарегестрироваться без логина", message, equalTo("Недостаточно данных для входа"));
+    }
 }

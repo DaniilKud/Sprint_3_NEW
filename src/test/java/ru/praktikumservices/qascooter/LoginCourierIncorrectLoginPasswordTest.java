@@ -82,7 +82,7 @@ public class LoginCourierIncorrectLoginPasswordTest {
         assertThat("Можно зарегестрироваться с некорректным паролем", message, equalTo("Учетная запись не найдена"));
     }
     @Test
-    @DisplayName("Нельзя авторизоваться только логин")
+    @DisplayName("Нельзя авторизоваться только c логин")
     public void authorizationCourierIncorrectOnlyWithLogin() {
         CourierLogin bodyLoginOnly = new CourierLogin (courier.login);
         message = courierCreateAndDelete.login (bodyLoginOnly)
@@ -93,7 +93,7 @@ public class LoginCourierIncorrectLoginPasswordTest {
         assertThat("Можно зарегестрироваться без пароля", message, equalTo("Недостаточно данных для входа"));
     }
     @Test
-    @DisplayName("Нельзя авторизоваться только паролем")
+    @DisplayName("Нельзя авторизоваться только c паролем")
     public void authorizationCourierIncorrectOnlyWithPassword() {
         CourierLogin bodyPasswordOnly = new CourierLogin (courier.password);
         message = courierCreateAndDelete.login (bodyPasswordOnly)

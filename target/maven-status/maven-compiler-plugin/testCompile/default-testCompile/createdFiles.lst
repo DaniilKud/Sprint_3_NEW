@@ -1,0 +1,6 @@
+ru/praktikumservices/qascooter/CreatOrderTest.class
+ru/praktikumservices/qascooter/LoginCourierTest.class
+ru/praktikumservices/qascooter/GetListOfOrdersTest.class
+ru/praktikumservices/qascooter/CreatCourierTest.class
+ru/praktikumservices/qascooter/CreatCourierWithoutLoginPasswordTest.class
+ru/praktikumservices/qascooter/LoginCourierIncorrectLoginPasswordTest.class
